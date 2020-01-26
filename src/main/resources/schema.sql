@@ -1,5 +1,5 @@
-CREATE TABLE member (
-      id SERIAL,
+CREATE TABLE user (
+      id INT PRIMARY KEY NOT NULL,
       username VARCHAR(25),
       email VARCHAR(255)
 );
