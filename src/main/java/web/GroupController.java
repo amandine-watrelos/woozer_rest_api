@@ -1,12 +1,10 @@
 package web;
 
 import entity.Group;
-import entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.GroupService;
-import service.UserService;
 
 import java.util.List;
 
@@ -18,13 +16,10 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-    @Autowired
-    private UserService userService;
-
-    @GetMapping(path = "/list")
-    public List<Group> getByUser() {
-        log.info("Récupération des groupes du user d'id {}", 1);
-        return groupService.findAllByUser(userService.findById(1));
+    @GetMapping(path = "/list/{userId}")
+    public List<Group> getByUser(@PathVariable Long userId) {
+        log.info("Récupération des groupes du user d'id {}", userId);
+        return groupService.findAllByUserId(userId);
     }
 
 }

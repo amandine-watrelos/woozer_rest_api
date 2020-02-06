@@ -7,7 +7,10 @@ INSERT INTO `group` (id, name) VALUES
 (3, 'Master 2'),
 (4, 'Potes fac');
 
-INSERT INTO `group_user` (id, group_id, user_id, role) VALUES
-(1, 1, 1, 'admin'),
-(2, 2, 1, 'member'),
-(3, 3, 1, 'member');
+INSERT INTO `group_user` (group_id, user_id) VALUES
+(1, 1),
+(2, 1),
+(3, 1);
+
+INSERT INTO `group_admin` (group_id, user_id) VALUES
+(1, 1);
