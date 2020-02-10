@@ -2,19 +2,16 @@ package entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Data
 @Table
+@Data
 public class User {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String username;
 
