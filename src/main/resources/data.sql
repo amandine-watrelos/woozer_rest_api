@@ -18,7 +18,7 @@ INSERT INTO `group_user` (group_id, user_id) VALUES
 INSERT INTO `group_admin` (group_id, user_id) VALUES
 (1, 1);
 
-INSERT INTO `event` (id,name,lieu,heure,date,description) VALUES
+INSERT INTO `event` (id,name,place,hour,date,description) VALUES
 (1, 'Crémaillière Marie', 'Merris', '20:00:00', '2020-2-14', 'Bienvenue dans mon nouvel appart!'),
 (2, 'Laser Game', 'Lille', '18:00:00', '2020-3-23', 'Laser game du turfu');
 

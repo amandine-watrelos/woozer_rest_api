@@ -29,9 +29,9 @@ public class Event {
 	
 	private Date date;
 	
-	private Time heure;
+	private Time hour;
 	
-	private String lieu;
+	private String place;
 	
     @ManyToMany
     @JoinTable(name = "event_user_participate",

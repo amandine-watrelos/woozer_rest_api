@@ -30,8 +30,8 @@ CREATE TABLE `group_admin` (
 CREATE TABLE `event` (
 	id INT PRIMARY KEY NOT NULL,
 	name VARCHAR(255),
-	lieu VARCHAR(255),
-	heure TIME,
+	place VARCHAR(255),
+	hour TIME,
 	date DATE,
 	description VARCHAR(255)
 );
@@ -44,7 +44,7 @@ CREATE TABLE `group_event` (
     FOREIGN KEY (event_id) REFERENCES woozer.event(id)
 );
 
-CREATE TABLE `event_user` (
+CREATE TABLE `event_user_participate` (
 	  event_id INT NOT NULL,
       user_id INT NOT NULL ,
       PRIMARY KEY (event_id, user_id),
