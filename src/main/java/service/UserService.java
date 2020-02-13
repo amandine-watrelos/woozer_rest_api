@@ -2,6 +2,8 @@ package service;
 
 import entity.User;
 
+import java.util.List;
+
 public interface UserService {
 
     User findById(long id);
@@ -10,4 +12,5 @@ public interface UserService {
 
     void create(User user);
 
+    List<User> searchByUsername(String term);
 }

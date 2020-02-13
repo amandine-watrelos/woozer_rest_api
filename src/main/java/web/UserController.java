@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.UserService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/user")
 @Slf4j
@@ -31,4 +33,11 @@ public class UserController {
         log.info("Création du user avec le mail : {}", user.getEmail());
         userService.create(user);
     }
+
+    @GetMapping(path = "/username/like/{term}")
+    public List<User> searchByUsername(@PathVariable String term) {
+        log.info("Recherche des users avec un username contenant le term : {}", term);
+        return userService.searchByUsername(term);
+    }
+
 }
