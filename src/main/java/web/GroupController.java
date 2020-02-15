@@ -22,4 +22,10 @@ public class GroupController {
         return groupService.findAllByUserId(userId);
     }
 
+    @GetMapping(path = "/{id}")
+    public Group getById(@PathVariable Long id) {
+        log.info("Récupération du groupe d'id {}", id);
+        return groupService.findById(id);
+    }
+
 }

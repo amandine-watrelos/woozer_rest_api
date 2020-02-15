@@ -18,4 +18,9 @@ public class GroupServiceImpl implements GroupService {
     public List<Group> findAllByUserId(Long userId) {
         return groupDao.findAllByUserId(userId);
     }
+
+    @Override
+    public Group findById(Long groupId) {
+        return groupDao.findById(groupId).orElse(null);
+    }
 }
