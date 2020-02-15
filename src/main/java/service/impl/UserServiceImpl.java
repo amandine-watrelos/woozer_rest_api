@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,5 +38,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> searchByUsername(String term) {
         return userDao.findUsersByUsernameIsLike(term);
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        List<User> res = new ArrayList<>();
+        userDao.findAll().iterator().forEachRemaining(res::add);
+        return res;
     }
 }

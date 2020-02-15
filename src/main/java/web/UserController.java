@@ -40,4 +40,9 @@ public class UserController {
         return userService.searchByUsername(term);
     }
 
+    @GetMapping(path = "/all")
+    public List<User> getAllUsers() {
+        log.info("Récupération de touds les utilisateurs");
+        return userService.findAllUsers();
+    }
 }

@@ -13,4 +13,6 @@ public interface UserService {
     void create(User user);
 
     List<User> searchByUsername(String term);
+
+    List<User> findAllUsers();
 }
