@@ -19,6 +19,7 @@ INSERT INTO `group_user` (group_id, user_id) VALUES
 (2, 1),
 (3, 1),
 (3, 2),
+(4, 1),
 (4, 2);
 
 INSERT INTO `group_admin` (group_id, user_id) VALUES

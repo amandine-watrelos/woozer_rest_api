@@ -7,4 +7,7 @@ import entity.Event;
 public interface EventService {
 
 	List<Event> findAllByGroupId(Long group);
+
+	Event findById(Long eventId);
+
 }
