@@ -18,7 +18,7 @@ public class GroupController {
 
     @GetMapping(path = "/list/{userId}")
     public List<Group> getByUser(@PathVariable Long userId) {
-        log.info("Récupération des groupes du user d'id {}", userId);
+         log.info("Récupération des groupes du user d'id {}", userId);
         return groupService.findAllByUserId(userId);
     }
 

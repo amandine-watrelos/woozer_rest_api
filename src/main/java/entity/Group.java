@@ -27,5 +27,11 @@ public class Group {
             joinColumns = {@JoinColumn(name = "group_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")})
     private Set<User> admins;
+    
+    @ManyToMany
+    @JoinTable(name = "group_event",
+            joinColumns = {@JoinColumn(name = "group_id")},
+            inverseJoinColumns = {@JoinColumn(name = "event_id")})
+    private Set<Event> events;
 
 }

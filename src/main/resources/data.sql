@@ -3,6 +3,7 @@ INSERT INTO `user` (id, username, email) VALUES
 (2, 'pierre59100', 'pierre.legrand@gmail.com'),
 (3, 'pierrehenry', 'pierreh@gmail.com'),
 (4, 'pierrick', 'pierrick59@gmail.com');
+(2, 'mgallardo', 'marie.gallardo@outlook.fr');
 
 
 INSERT INTO `group` (id, name) VALUES
@@ -16,7 +17,17 @@ INSERT INTO `group_user` (group_id, user_id) VALUES
 (1, 2),
 (1, 4),
 (2, 1),
-(3, 1);
+(3, 1),
+(3, 2),
+(4,2);
 
 INSERT INTO `group_admin` (group_id, user_id) VALUES
 (1, 1);
+
+INSERT INTO `event` (id,name,place,hour,date,description) VALUES
+(1, 'Crémaillière Marie', 'Merris', '20:00:00', '2020-2-14', 'Bienvenue dans mon nouvel appart!'),
+(2, 'Laser Game', 'Lille', '18:00:00', '2020-3-23', 'Laser game du turfu');
+
+INSERT INTO `group_event` (group_id, event_id) VALUES 
+(4,1),
+(4,2);
