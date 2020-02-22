@@ -19,4 +19,9 @@ public class EventServiceImpl implements EventService {
     public List<Event> findAllByGroupId(Long groupId) {
         return eventDao.findAllByGroupId(groupId);
     }
+    
+    @Override
+    public Event findById(Long eventId) {
+    	return eventDao.findById(eventId).get();
+    }
 }

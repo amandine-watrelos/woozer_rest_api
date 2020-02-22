@@ -25,4 +25,10 @@ public class EventController {
 		log.info("Récupération des events du groupe d'id {}", groupId);
 		return eventService.findAllByGroupId(groupId);
 	}
+	
+	@GetMapping(path="{eventId}")
+	public Event getById(@PathVariable Long eventId) {
+		log.info("Récupération de l'event correspondant à l'id {}", eventId);
+		return eventService.findById(eventId);
+	}
 }
