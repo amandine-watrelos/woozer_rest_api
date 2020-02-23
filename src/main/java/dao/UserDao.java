@@ -13,7 +13,7 @@ public interface UserDao extends CrudRepository<User, Long> {
 
     User findByEmail(String email);
 
-    @Query(value = "SELECT * FROM woozer.user WHERE username LIKE %:username%", nativeQuery = true)
+    @Query(value = "SELECT * FROM user WHERE username LIKE %:username% LIMIT 4", nativeQuery = true)
     List<User> findUsersByUsernameIsLike(@Param("username") String username);
 
 }
