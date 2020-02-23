@@ -24,4 +24,9 @@ public class EventServiceImpl implements EventService {
     public Event findById(Long eventId) {
         return eventDao.findById(eventId).orElse(null);
     }
+    
+    @Override
+    public List<Event> findAllByUserId(Long userId) {
+    	return eventDao.findAllByUserId(userId);
+    }
 }

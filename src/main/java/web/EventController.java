@@ -31,5 +31,11 @@ public class EventController {
 		log.info("Récupération de l'event d'id {}", eventId);
 		return eventService.findById(eventId);
 	}
+	
+	@GetMapping(path="/perso/{userId}")
+	public List<Event> getByUser(@PathVariable Long userId){
+		log.info("Récupération des events de l'user d'id {}", userId);
+		return eventService.findAllByUserId(userId);
+	}
 
 }
