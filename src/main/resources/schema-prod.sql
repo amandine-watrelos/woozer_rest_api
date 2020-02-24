@@ -1,13 +1,13 @@
 CREATE schema bscts78dfuswnzqa1gko;
 
 CREATE TABLE `user` (
-      id INT PRIMARY KEY NOT NULL,
+      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       username VARCHAR(25) NOT NULL,
       email VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE `groupe` (
-      id INT PRIMARY KEY NOT NULL,
+      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       name VARCHAR(25) NOT NULL
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE `group_admin` (
 );
 
 CREATE TABLE `event` (
-	id INT PRIMARY KEY NOT NULL,
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(255),
 	place VARCHAR(255),
 	hour TIME,
