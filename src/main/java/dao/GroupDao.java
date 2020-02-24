@@ -11,10 +11,10 @@ import java.util.List;
 @Repository
 public interface GroupDao extends CrudRepository<Group, Long> {
 
-   @Query(value = "SELECT * FROM woozer.group WHERE id in (SELECT group_id FROM group_user WHERE user_id = :userId)", nativeQuery = true)
+   @Query(value = "SELECT * FROM `group` g WHERE g.id in (SELECT group_id FROM group_user WHERE user_id = :userId)", nativeQuery = true)
    List<Group> findAllByUserId(@Param("userId") Long userId);
 
-   @Query(value = "SELECT * FROM woozer.group WHERE id = :id", nativeQuery = true)
+   @Query(value = "SELECT * FROM `group` g WHERE g.id = :id", nativeQuery = true)
    Group findByGroupId(@Param("id") Long id);
 
 
