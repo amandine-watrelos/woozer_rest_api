@@ -6,7 +6,7 @@ CREATE TABLE `user` (
       email VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE `group` (
+CREATE TABLE `groupe` (
       id INT PRIMARY KEY NOT NULL,
       name VARCHAR(25) NOT NULL
 );
@@ -15,7 +15,7 @@ CREATE TABLE `group_user` (
       group_id INT NOT NULL,
       user_id INT NOT NULL ,
       PRIMARY KEY (group_id, user_id),
-      FOREIGN KEY (group_id) REFERENCES woozer.group(id),
+      FOREIGN KEY (group_id) REFERENCES woozer.groupe(id),
       FOREIGN KEY (user_id) REFERENCES woozer.user(id)
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE `group_admin` (
       group_id INT NOT NULL,
       user_id INT NOT NULL ,
       PRIMARY KEY (group_id, user_id),
-      FOREIGN KEY (group_id) REFERENCES woozer.group(id),
+      FOREIGN KEY (group_id) REFERENCES woozer.groupe(id),
       FOREIGN KEY (user_id) REFERENCES woozer.user(id)
 );
 
@@ -40,7 +40,7 @@ CREATE TABLE `group_event` (
 	group_id INT NOT NULL,
 	event_id INT NOT NULL,
 	PRIMARY KEY (group_id,event_id),
-	FOREIGN KEY (group_id) REFERENCES woozer.group(id),
+	FOREIGN KEY (group_id) REFERENCES woozer.groupe(id),
     FOREIGN KEY (event_id) REFERENCES woozer.event(id)
 );
 

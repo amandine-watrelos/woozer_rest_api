@@ -21,6 +21,6 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Group findById(Long groupId) {
-        return groupDao.findByGroupId(groupId);
+        return groupDao.findById(groupId).orElse(null);
     }
 }

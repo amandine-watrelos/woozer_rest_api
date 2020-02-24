@@ -6,7 +6,7 @@ INSERT INTO `user` (id, username, email) VALUES
 (5, 'pierrick', 'pierrick59@gmail.com');
 
 
-INSERT INTO `group` (id, name) VALUES
+INSERT INTO `groupe` (id, name) VALUES
 (1, 'Amis lycée'),
 (2, 'Collègues'),
 (3, 'Master 2'),
