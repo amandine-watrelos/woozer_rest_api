@@ -1,4 +1,4 @@
-package web;
+package web.controller;
 
 import java.util.List;
 
