@@ -1,9 +1,7 @@
 package dao;
 
 import entity.User;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +11,5 @@ public interface UserDao extends CrudRepository<User, Long> {
 
     User findByEmail(String email);
 
-    @Query(value = "SELECT * FROM user WHERE username LIKE %:username% LIMIT 4", nativeQuery = true)
-    List<User> findUsersByUsernameIsLike(@Param("username") String username);
-
+    List<User> findAllByUsernameContaining(String username);
 }
