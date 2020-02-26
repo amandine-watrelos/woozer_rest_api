@@ -51,3 +51,19 @@ CREATE TABLE `event_user_participate` (
       FOREIGN KEY (event_id) REFERENCES bscts78dfuswnzqa1gko.event(id),
       FOREIGN KEY (user_id) REFERENCES bscts78dfuswnzqa1gko.user(id)
 );
+
+CREATE TABLE `discussion` (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	group_id INT NOT NULL,
+    FOREIGN KEY (group_id) REFERENCES bscts78dfuswnzqa1gko.groupe(id)
+);
+
+CREATE TABLE `message` (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	discussion_id INT NOT NULL,
+    user_id INT NOT NULL,
+    date DATE,
+    message VARCHAR(2048),
+    FOREIGN KEY (user_id) REFERENCES bscts78dfuswnzqa1gko.user(id),
+    FOREIGN KEY (discussion_id) REFERENCES bscts78dfuswnzqa1gko.discussion(id)
+);

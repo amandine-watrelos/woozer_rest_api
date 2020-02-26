@@ -25,10 +25,20 @@ INSERT INTO `group_user` (group_id, user_id) VALUES
 INSERT INTO `group_admin` (group_id, user_id) VALUES
 (1, 1);
 
-INSERT INTO `event` (id,name,place,hour,date,description) VALUES
+INSERT INTO `event` (id, name, place, hour, date, description) VALUES
 (1, 'Crémaillière Marie', 'Merris', '20:00:00', '2020-2-14', 'Bienvenue dans mon nouvel appart!'),
 (2, 'Laser Game', 'Lille', '18:00:00', '2020-3-23', 'Laser game du turfu');
 
 INSERT INTO `group_event` (group_id, event_id) VALUES 
 (4, 1),
 (4, 2);
+
+INSERT INTO `discussion` (id, group_id) VALUES
+(1, 1),
+(2, 3);
+
+INSERT INTO `message` (id, discussion_id, user_id, date, message) VALUES
+(1, 1, 1, '2020-02-14', 'Coucou les copains du lycée! J\'ai crée ce groupe pour qu\'on s\'organise plus facilement dans nos sorties :)'),
+(2, 1, 2, '2020-02-28', 'Hey ! Cool merci Amandine. D\'ailleurs ça fait un bail qu\'on s\'est pas vus donc je pensais aller boire un verre prochainement! Je crée un événement, mettez vos dispos dessus si vous êtes chauds ;)'),
+(3, 2, 2, '2020-02-27', 'Hello les potes ! Bientôt fini ce master, on fête ça après les exams? :)'),
+(4, 1, 1, '2020-03-01', 'Yes bonne idée ^^');
