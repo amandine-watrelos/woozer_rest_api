@@ -8,6 +8,7 @@ import entity.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.DiscussionService;
+import service.GroupService;
 import web.dto.DiscussionWithLastMessageDto;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
 public class DiscussionServiceImpl implements DiscussionService {
 
     @Autowired
-    private GroupDao groupDao;
+    private GroupService groupService;
 
     @Autowired
     private MessageDao messageDao;
@@ -25,7 +26,7 @@ public class DiscussionServiceImpl implements DiscussionService {
     @Override
     public List<DiscussionWithLastMessageDto> getDiscussionsByUserId(Long userId) {
         List<DiscussionWithLastMessageDto> discussions = new ArrayList<>();
-        List<Group> userGroups = groupDao.findAllByUserId(userId);
+        List<Group> userGroups = groupService.findAllByUser(userId);
         Message lastMessage = null;
         for(Group group : userGroups) {
             lastMessage = messageDao.getLastMessageByDiscussionId(group.getId());
