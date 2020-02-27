@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(long id) {
-        return userDao.findById(id).orElse(null);
+        return userDao.findById(id).get();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> searchByUsername(String term) {
-        return userDao.findUsersByUsernameIsLike(term);
+        return userDao.findAllByUsernameContaining(term);
     }
 
     @Override
