@@ -5,13 +5,26 @@ import entity.Message;
 
 public class DiscussionWithLastMessageDto {
 
+    private Long id;
+
     private Group group;
 
     private Message message;
 
-    public DiscussionWithLastMessageDto(Group group, Message message) {
+    public DiscussionWithLastMessageDto(Long id, Group group, Message message) {
+        this.id = id;
         this.group = group;
         this.message = message;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Group getGroup() {

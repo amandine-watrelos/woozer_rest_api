@@ -35,7 +35,9 @@ INSERT INTO `group_event` (group_id, event_id) VALUES
 
 INSERT INTO `discussion` (id, group_id) VALUES
 (1, 1),
-(2, 3);
+(2, 3),
+(3, 2),
+(4, 4);
 
 INSERT INTO `message` (id, discussion_id, user_id, date, message) VALUES
 (1, 1, 1, '2020-02-14', 'Coucou les copains du lycée! J\'ai crée ce groupe pour qu\'on s\'organise plus facilement dans nos sorties :)'),

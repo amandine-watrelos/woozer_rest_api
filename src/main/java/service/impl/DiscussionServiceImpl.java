@@ -1,8 +1,7 @@
 package service.impl;
 
 import dao.DiscussionDao;
-import dao.GroupDao;
-import dao.MessageDao;
+import entity.Discussion;
 import entity.Group;
 import entity.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +20,22 @@ public class DiscussionServiceImpl implements DiscussionService {
     private GroupService groupService;
 
     @Autowired
-    private MessageDao messageDao;
+    private DiscussionDao discussionDao;
 
     @Override
     public List<DiscussionWithLastMessageDto> getDiscussionsByUserId(Long userId) {
-        List<DiscussionWithLastMessageDto> discussions = new ArrayList<>();
-        List<Group> userGroups = groupService.findAllByUser(userId);
-        Message lastMessage = null;
-        for(Group group : userGroups) {
-            lastMessage = messageDao.getLastMessageByDiscussionId(group.getId());
-            discussions.add(new DiscussionWithLastMessageDto(group, lastMessage));
+        List<Group> groups = groupService.findAllByUser(userId);
+        List<Discussion> discussions = discussionDao.findAllByGroupIn(groups);
+        List<DiscussionWithLastMessageDto> discussionsWithLastMessage = new ArrayList<>();
+        Message lastMessage;
+        for(Discussion discussion : discussions) {
+            lastMessage = null;
+            if (!discussion.getMessages().isEmpty()) {
+                lastMessage = discussion.getMessages().get(discussion.getMessages().size() - 1);
+            }
+            discussionsWithLastMessage.add(new DiscussionWithLastMessageDto(discussion.getId(), discussion.getGroup(), lastMessage));
         }
-        return discussions;
+        return discussionsWithLastMessage;
     }
 
 }
