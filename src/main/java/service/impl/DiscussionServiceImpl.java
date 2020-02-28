@@ -22,6 +22,11 @@ public class DiscussionServiceImpl implements DiscussionService {
     @Autowired
     private DiscussionDao discussionDao;
 
+
+    @Override public Discussion findById(Long discussionId) {
+        return discussionDao.findById(discussionId).get();
+    }
+
     @Override
     public List<DiscussionWithLastMessageDto> getDiscussionsByUserId(Long userId) {
         List<Group> groups = groupService.findAllByUser(userId);

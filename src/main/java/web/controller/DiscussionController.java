@@ -1,5 +1,6 @@
 package web.controller;
 
+import entity.Discussion;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,12 @@ public class DiscussionController {
 
     @Autowired
     private DiscussionService discussionService;
+
+    @GetMapping(path = "/{discussionId}")
+    public Discussion getDiscussionById(@PathVariable Long discussionId) {
+        log.info("Récupération de la discussion d'id {}", discussionId);
+        return discussionService.findById(discussionId);
+    }
 
     @GetMapping(path = "list/{userId}")
     public List<DiscussionWithLastMessageDto> getDiscussionsByUserId(@PathVariable Long userId) {
