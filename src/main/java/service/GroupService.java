@@ -10,4 +10,6 @@ public interface GroupService {
     List<Group> findAllByUser(Long user);
 
     Group findById(Long groupId);
+
+    Group save(Group group);
 }

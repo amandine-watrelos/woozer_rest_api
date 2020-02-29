@@ -28,4 +28,10 @@ public class GroupController {
         return groupService.findById(id);
     }
 
+    @PostMapping(path = "/save")
+    public Group save(@RequestBody Group group) {
+        log.info("Sauvegarde du groupe de nom {}", group.getName());
+        return groupService.save(group);
+    }
+
 }
