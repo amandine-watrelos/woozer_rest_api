@@ -17,13 +17,13 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(path = "/{id}")
-    public User getById(@PathVariable long id) {
-        log.info("Récupération du user d'id {}", id);
-        return userService.findById(id);
-    }
+        public User getById(@PathVariable long id) {
+            log.info("Récupération du user d'id {}", id);
+            return userService.findById(id);
+        }
 
-    @PostMapping(path = "/email")
-    public User getByMail(@RequestBody String email) {
+        @PostMapping(path = "/email")
+        public User getByMail(@RequestBody String email) {
         log.info("Recherche du user par mail : {}", email);
         return userService.findByEmail(email);
     }

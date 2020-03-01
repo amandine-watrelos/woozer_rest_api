@@ -31,4 +31,7 @@ public class Message {
 
     private String message;
 
+    public String toString() {
+        return "";
+    }
 }
