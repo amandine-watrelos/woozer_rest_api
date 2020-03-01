@@ -13,8 +13,12 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageDao messageDao;
 
+    @Autowired
+    private DiscussionDao discussionDao;
+
     @Override
     public Message save(Message message, Long discussionId) {
-        return messageDao.mySave(message.getMessage(), message.getDate(), message.getUser().getId(), discussionId);
+        message.setDiscussion(discussionDao.findById(discussionId).get());
+        return messageDao.save(message);
     }
 }

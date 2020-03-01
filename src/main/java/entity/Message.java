@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Entity
@@ -15,10 +16,10 @@ import lombok.Data;
 public class Message {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "discussion_id")
     @JsonIgnore
     private Discussion discussion;
@@ -31,7 +32,4 @@ public class Message {
 
     private String message;
 
-    public String toString() {
-        return "";
-    }
 }

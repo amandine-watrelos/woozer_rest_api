@@ -25,8 +25,4 @@ public class Discussion {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "discussion")
     private List<Message> messages;
 
-    public String toString() {
-        return "";
-    }
-
 }
