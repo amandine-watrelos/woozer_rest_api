@@ -39,33 +39,45 @@ CREATE TABLE `event` (
 );
 
 CREATE TABLE `group_event` (
-	group_id INT NOT NULL,
-	event_id INT NOT NULL,
-	PRIMARY KEY (group_id, event_id),
-	FOREIGN KEY (group_id) REFERENCES woozer.groupe(id),
+    group_id INT NOT NULL,
+    event_id INT NOT NULL,
+    PRIMARY KEY (group_id, event_id),
+    FOREIGN KEY (group_id) REFERENCES woozer.groupe(id),
     FOREIGN KEY (event_id) REFERENCES woozer.event(id)
 );
 
 CREATE TABLE `event_user_participate` (
 	  event_id INT NOT NULL,
-      user_id INT NOT NULL,
-      PRIMARY KEY (event_id, user_id),
-      FOREIGN KEY (event_id) REFERENCES woozer.event(id),
-      FOREIGN KEY (user_id) REFERENCES woozer.user(id)
+    user_id INT NOT NULL,
+    PRIMARY KEY (event_id, user_id),
+    FOREIGN KEY (event_id) REFERENCES woozer.event(id),
+    FOREIGN KEY (user_id) REFERENCES woozer.user(id)
 );
 
 CREATE TABLE `discussion` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	group_id INT NOT NULL,
+    group_id INT NOT NULL,
     FOREIGN KEY (group_id) REFERENCES woozer.groupe(id)
 );
 
 CREATE TABLE `message` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	discussion_id INT NOT NULL,
+	  discussion_id INT NOT NULL,
     user_id INT NOT NULL,
-    date DATE,
-    message VARCHAR(2048),
+    date DATE NOT NULL,
+    message VARCHAR(2048) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES woozer.user(id),
     FOREIGN KEY (discussion_id) REFERENCES woozer.discussion(id)
+);
+
+
+CREATE TABLE `debt` (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	  payed_by_id INT NOT NULL,
+    payed_for_id INT NOT NULL,
+    amount FLOAT NOT NULL,
+    comment VARCHAR(25),
+    done BIT,
+    FOREIGN KEY (payed_by_id) REFERENCES woozer.user(id),
+    FOREIGN KEY (payed_for_id) REFERENCES woozer.user(id)
 );

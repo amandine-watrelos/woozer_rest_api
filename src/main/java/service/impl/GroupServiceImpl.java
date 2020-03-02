@@ -7,6 +7,7 @@ import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.GroupService;
+import service.UserService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,11 +19,11 @@ public class GroupServiceImpl implements GroupService {
     private GroupDao groupDao;
 
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
     @Override
     public List<Group> findAllByUser(Long userId) {
-        List<User> userList = Arrays.asList(userDao.findById(userId).get());
+        List<User> userList = Arrays.asList(userService.findById(userId));
         return groupDao.findAllByUsersIn(userList);
     }
 

@@ -67,3 +67,14 @@ CREATE TABLE `message` (
     FOREIGN KEY (user_id) REFERENCES bscts78dfuswnzqa1gko.user(id),
     FOREIGN KEY (discussion_id) REFERENCES bscts78dfuswnzqa1gko.discussion(id)
 );
+
+CREATE TABLE `debt` (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	  payed_by_id INT NOT NULL,
+    payed_for_id INT NOT NULL,
+    amount FLOAT NOT NULL,
+    comment VARCHAR(25),
+    done BIT,
+    FOREIGN KEY (payed_by_id) REFERENCES bscts78dfuswnzqa1gko.user(id),
+    FOREIGN KEY (payed_for_id) REFERENCES bscts78dfuswnzqa1gko.user(id)
+);
