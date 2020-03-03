@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import entity.Event;
+import entity.Group;
+import entity.Message;
 import lombok.extern.slf4j.Slf4j;
 import service.EventService;
 
@@ -37,5 +42,11 @@ public class EventController {
 		log.info("Récupération des events de l'user d'id {}", userId);
 		return eventService.findAllByUserId(userId);
 	}
+	
+	@PostMapping(path = "/save")
+    public Event save(@RequestBody Event event) {
+        log.info("Sauvegarde de l'event d'id {}", event.getId());
+        return eventService.save(event);
+    }
 
 }

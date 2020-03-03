@@ -11,4 +11,6 @@ public interface EventService {
 	Event findById(Long event);
 
 	List<Event> findAllByUserId(Long user);
+	
+	Event save(Event event);
 }
