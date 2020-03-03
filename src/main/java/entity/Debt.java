@@ -25,4 +25,6 @@ public class Debt {
 
     private String comment;
 
+    private boolean done;
+
 }
