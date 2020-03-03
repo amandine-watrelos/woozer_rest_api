@@ -7,10 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.DebtService;
 import service.GroupService;
+import service.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,10 +22,19 @@ public class DebtServiceImpl implements DebtService {
     @Autowired
     private GroupService groupService;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public List<Debt> findAllInGroup(Long groupId) {
         Set<User> usersInGroup = groupService.findById(groupId).getUsers();
         return debtDao.findAllByPayedForInOrPayedByIn(usersInGroup, usersInGroup);
+    }
+
+    @Override
+    public List<Debt> findAllByUser(Long userId) {
+        Set<User> user = new HashSet<>(Arrays.asList(userService.findById(userId)));
+        return debtDao.findAllByPayedForInOrPayedByIn(user, user);
     }
 
 }

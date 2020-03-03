@@ -19,10 +19,16 @@ public class DebtController {
     @Autowired
     private DebtService debtService;
 
-    @GetMapping(path="list/{groupId}")
+    @GetMapping(path="list/group/{groupId}")
     public List<Debt> getByGroup(@PathVariable Long groupId){
         log.info("Récupération des dettes du groupe d'id {}", groupId);
         return debtService.findAllInGroup(groupId);
+    }
+
+    @GetMapping(path="list/user/{userId}")
+    public List<Debt> getByUser(@PathVariable Long userId){
+        log.info("Récupération des dettes du user d'id {}", userId);
+        return debtService.findAllByUser(userId);
     }
 
 }

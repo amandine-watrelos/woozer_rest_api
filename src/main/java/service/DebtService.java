@@ -8,4 +8,5 @@ public interface DebtService {
 
     List<Debt> findAllInGroup(Long groupId);
 
+    List<Debt> findAllByUser(Long userId);
 }
