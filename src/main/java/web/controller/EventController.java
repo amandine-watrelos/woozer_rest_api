@@ -43,10 +43,12 @@ public class EventController {
 		return eventService.findAllByUserId(userId);
 	}
 	
-	@PostMapping(path = "/save")
-    public Event save(@RequestBody Event event) {
-        log.info("Sauvegarde de l'event d'id {}", event.getId());
-        return eventService.save(event);
+	@PostMapping(path = "/save/{groupId}")
+    public Event save(@RequestBody Event event, @PathVariable Long groupId) {
+        Event result = eventService.save(event);
+        log.info("Sauvegarde de l'event d'id {} pour le groupe d'id {}", result.getId(), groupId);
+        eventService.saveEventToGroup(result.getId(), groupId);
+        return result;
     }
 
 }

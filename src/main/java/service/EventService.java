@@ -13,4 +13,6 @@ public interface EventService {
 	List<Event> findAllByUserId(Long user);
 	
 	Event save(Event event);
+	
+	void saveEventToGroup(Long eventId , Long groupId);
 }
