@@ -29,4 +29,14 @@ public class EventServiceImpl implements EventService {
     public List<Event> findAllByUserId(Long userId) {
     	return eventDao.findAllByUserId(userId);
     }
+    
+    @Override
+    public Event save(Event event) {
+    	return eventDao.save(event);
+    }
+    
+    @Override
+    public void saveEventToGroup(Long eventId, Long groupId) {
+    	eventDao.saveEventToGroup(eventId, groupId);
+    }
 }
