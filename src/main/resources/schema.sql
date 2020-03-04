@@ -76,7 +76,7 @@ CREATE TABLE `debt` (
 	  payed_by_id INT NOT NULL,
     payed_for_id INT NOT NULL,
     amount FLOAT NOT NULL,
-    comment VARCHAR(25),
+    comment VARCHAR(25) NOT NULL,
     done BIT,
     FOREIGN KEY (payed_by_id) REFERENCES woozer.user(id),
     FOREIGN KEY (payed_for_id) REFERENCES woozer.user(id)

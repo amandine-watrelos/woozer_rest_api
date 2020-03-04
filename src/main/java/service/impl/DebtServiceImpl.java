@@ -10,8 +10,6 @@ import service.GroupService;
 import service.UserService;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class DebtServiceImpl implements DebtService {
@@ -37,4 +35,8 @@ public class DebtServiceImpl implements DebtService {
         return debtDao.findAllByPayedForInOrPayedByIn(user, user);
     }
 
+
+    @Override public Debt save(Debt debt) {
+        return debtDao.save(debt);
+    }
 }

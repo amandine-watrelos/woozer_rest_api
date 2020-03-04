@@ -3,10 +3,7 @@ package web.controller;
 import entity.Debt;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import service.DebtService;
 
 import java.util.List;
@@ -29,6 +26,12 @@ public class DebtController {
     public List<Debt> getByUser(@PathVariable Long userId){
         log.info("Récupération des dettes du user d'id {}", userId);
         return debtService.findAllByUser(userId);
+    }
+
+    @PostMapping(path = "/save")
+    public Debt save(@RequestBody Debt debt) {
+        log.info("Sauvegarde de la dette avec commentaire {}", debt.getComment());
+        return debtService.save(debt);
     }
 
 }
