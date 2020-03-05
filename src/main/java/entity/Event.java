@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,12 @@ public class Event {
             joinColumns = {@JoinColumn(name = "event_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")})
     private Set<User> participant;
+    
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name = "event_survey",
+    joinColumns = {@JoinColumn(name = "event_id")},
+    inverseJoinColumns = {@JoinColumn(name = "survey_id")})
+    private Set<Survey> survey;
 	
 	
 	
