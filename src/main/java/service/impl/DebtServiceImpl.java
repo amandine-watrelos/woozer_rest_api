@@ -35,8 +35,14 @@ public class DebtServiceImpl implements DebtService {
         return debtDao.findAllByPayedForInOrPayedByIn(user, user);
     }
 
-
     @Override public Debt save(Debt debt) {
         return debtDao.save(debt);
     }
+
+    @Override public Debt acknowledge(Long debtId) {
+        Debt debt = debtDao.findById(debtId).get();
+        debt.setDone(!debt.isDone());
+        return debtDao.save(debt);
+    }
+
 }

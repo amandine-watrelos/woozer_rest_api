@@ -34,4 +34,10 @@ public class DebtController {
         return debtService.save(debt);
     }
 
+    @GetMapping(path="{debtId}/acknowledge")
+    public Debt acknowledge(@PathVariable Long debtId){
+        log.info("Acquittement de la dette d'id {}", debtId);
+        return debtService.acknowledge(debtId);
+    }
+
 }

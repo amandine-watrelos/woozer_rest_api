@@ -11,4 +11,7 @@ public interface DebtService {
     List<Debt> findAllByUser(Long userId);
 
     Debt save(Debt debt);
+
+    Debt acknowledge(Long debtId);
+
 }
