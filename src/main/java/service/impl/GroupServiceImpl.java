@@ -1,11 +1,12 @@
 package service.impl;
 
 import dao.GroupDao;
-import dao.UserDao;
+import entity.Discussion;
 import entity.Group;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import service.DiscussionService;
 import service.GroupService;
 import service.UserService;
 
@@ -21,6 +22,9 @@ public class GroupServiceImpl implements GroupService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private DiscussionService discussionService;
+
     @Override
     public List<Group> findAllByUser(Long userId) {
         List<User> userList = Arrays.asList(userService.findById(userId));
@@ -34,7 +38,14 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Group save(Group group) {
-        return groupDao.save(group);
+        Group groupSaved = groupDao.save(group);
+        // si on est dans le cas de la création d'un groupe, une discussion doit être créée et liée au groupe
+        if (group.getId() != null) {
+            Discussion discussionToCreate = new Discussion();
+            discussionToCreate.setGroup(groupSaved);
+            discussionService.save(discussionToCreate);
+        }
+        return groupSaved;
     }
 
 }

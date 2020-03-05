@@ -12,7 +12,7 @@ import lombok.Data;
 public class Discussion {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

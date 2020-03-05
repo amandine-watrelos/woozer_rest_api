@@ -24,9 +24,7 @@ public class DiscussionServiceImpl implements DiscussionService {
 
 
     @Override
-    public Discussion save(Message message, Long discussionId) {
-        Discussion discussion = discussionDao.findById(discussionId).get();
-        discussion.getMessages().add(message);
+    public Discussion save(Discussion discussion) {
         return discussionDao.save(discussion);
     }
 
