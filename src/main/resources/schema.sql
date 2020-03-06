@@ -81,3 +81,51 @@ CREATE TABLE `debt` (
     FOREIGN KEY (payed_by_id) REFERENCES woozer.user(id),
     FOREIGN KEY (payed_for_id) REFERENCES woozer.user(id)
 );
+
+CREATE TABLE `survey` (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	type_survey VARCHAR(25),
+	title VARCHAR(25)
+);
+
+CREATE TABLE `survey_option` (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(25) NOT NULL,
+	nb_votes INT NOT NULL
+);
+
+CREATE TABLE `survey_survey_option`(
+	survey_id INT NOT NULL,
+    option_id INT NOT NULL,
+    PRIMARY KEY (survey_id, option_id),
+    FOREIGN KEY (survey_id) REFERENCES woozer.survey(id),
+    FOREIGN KEY (option_id) REFERENCES woozer.survey_option(id)
+);
+
+CREATE TABLE `survey_user_answered` (
+	survey_id INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (survey_id, user_id),
+    FOREIGN KEY (survey_id) REFERENCES woozer.survey(id),
+    FOREIGN KEY (user_id) REFERENCES woozer.user(id)
+);
+
+CREATE TABLE `event_survey` (
+	survey_id INT NOT NULL,
+    event_id INT NOT NULL,
+    PRIMARY KEY (survey_id, event_id),
+    FOREIGN KEY (survey_id) REFERENCES woozer.survey(id),
+    FOREIGN KEY (event_id) REFERENCES woozer.event(id)
+
+);
+
+CREATE TABLE `survey_option_user` (
+	survey_option_id INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (survey_option_id, user_id),
+    FOREIGN KEY (survey_option_id) REFERENCES woozer.survey_option(id),
+    FOREIGN KEY (user_id) REFERENCES woozer.user(id)
+
+);
+
+
