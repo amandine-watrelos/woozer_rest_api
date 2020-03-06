@@ -118,3 +118,14 @@ CREATE TABLE `event_survey` (
     FOREIGN KEY (event_id) REFERENCES woozer.event(id)
 
 );
+
+CREATE TABLE `survey_option_user` (
+	survey_option_id INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (survey_option_id, user_id),
+    FOREIGN KEY (survey_option_id) REFERENCES woozer.survey_option(id),
+    FOREIGN KEY (user_id) REFERENCES woozer.user(id)
+
+);
+
+

@@ -8,12 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import entity.Event;
-import entity.Group;
-import entity.Message;
 import lombok.extern.slf4j.Slf4j;
 import service.EventService;
 
@@ -43,9 +40,9 @@ public class EventController {
 		return eventService.findAllByUserId(userId);
 	}
 	
-	@PostMapping(path = "/save/{groupId}")
-    public Event save(@RequestBody Event event, @PathVariable Long groupId) {
-        Event result = eventService.save(event);
+	@PostMapping(path = "/create/{groupId}")
+    public Event create(@RequestBody Event event, @PathVariable Long groupId) {
+		Event result = eventService.save(event);
         log.info("Sauvegarde de l'event d'id {} pour le groupe d'id {}", result.getId(), groupId);
         eventService.saveEventToGroup(result.getId(), groupId);
         return result;
