@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Debt;
+import entity.Group;
 import entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +13,7 @@ import java.util.Set;
 public interface DebtDao extends CrudRepository<Debt, Long> {
 
     List<Debt> findAllByPayedForInOrPayedByIn(Set<User> payedFor, Set<User> payedBy);
+
+    List<Debt> findAllByGroupIn(List<Group> group);
 
 }

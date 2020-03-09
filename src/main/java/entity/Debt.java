@@ -14,6 +14,10 @@ public class Debt {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
+
+    @ManyToOne
     @JoinColumn(name = "payed_by_id")
     private User payedBy;
 

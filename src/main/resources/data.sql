@@ -45,8 +45,8 @@ INSERT INTO `message` (id, discussion_id, user_id, date, message) VALUES
 (3, 2, 2, '2020-02-27', 'Hello les potes ! Bientôt fini ce master, on fête ça après les exams? :)'),
 (4, 1, 1, '2020-03-01', 'Yes bonne idée ^^');
 
-INSERT INTO `debt` (id, payed_by_id, payed_for_id, amount, comment, done) VALUES
-(1, 2, 1, 15.0, 'ciné + macdo', 0),
-(2, 2, 4, 7.5, 'mojito velvet', 1),
-(3, 4, 1, 5.0, 'courses raclette', 1),
-(4, 1, 4, 25.0, 'accrobranche', 0);
+INSERT INTO `debt` (id, payed_by_id, payed_for_id, amount, comment, done, group_id) VALUES
+(1, 2, 1, 15.0, 'ciné + macdo', 0, 1),
+(2, 2, 4, 7.5, 'mojito velvet', 1, 1),
+(3, 4, 1, 5.0, 'courses raclette', 1, 2),
+(4, 1, 4, 25.0, 'accrobranche', 0, 3);

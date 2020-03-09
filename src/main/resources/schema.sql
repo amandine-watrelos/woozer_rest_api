@@ -75,9 +75,11 @@ CREATE TABLE `debt` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	  payed_by_id INT NOT NULL,
     payed_for_id INT NOT NULL,
+    group_id INT NOT NULL,
     amount FLOAT NOT NULL,
     comment VARCHAR(25) NOT NULL,
     done BIT,
+    FOREIGN KEY (group_id) REFERENCES woozer.groupe(id),
     FOREIGN KEY (payed_by_id) REFERENCES woozer.user(id),
     FOREIGN KEY (payed_for_id) REFERENCES woozer.user(id)
 );

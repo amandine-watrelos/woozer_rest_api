@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.DebtDao;
 import entity.Debt;
+import entity.Group;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,8 @@ public class DebtServiceImpl implements DebtService {
 
     @Override
     public List<Debt> findAllInGroup(Long groupId) {
-        Set<User> usersInGroup = groupService.findById(groupId).getUsers();
-        return debtDao.findAllByPayedForInOrPayedByIn(usersInGroup, usersInGroup);
+        List<Group> group = Arrays.asList(groupService.findById(groupId));
+        return debtDao.findAllByGroupIn(group);
     }
 
     @Override
