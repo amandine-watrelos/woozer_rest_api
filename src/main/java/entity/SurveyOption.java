@@ -29,7 +29,7 @@ public class SurveyOption {
     @JoinColumn(name = "nb_votes")
 	private int nbVotes;
     
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "survey_option_user",
             joinColumns = {@JoinColumn(name = "survey_option_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")})

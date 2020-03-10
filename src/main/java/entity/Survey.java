@@ -26,7 +26,7 @@ public class Survey {
    inverseJoinColumns = {@JoinColumn(name = "option_id")})
    private Set<SurveyOption> options;
    
-   @ManyToMany(cascade=CascadeType.ALL)
+   @ManyToMany
    @JoinTable(name = "survey_user_answered",
            joinColumns = {@JoinColumn(name = "survey_id")},
            inverseJoinColumns = {@JoinColumn(name = "user_id")})
