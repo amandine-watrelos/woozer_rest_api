@@ -10,7 +10,7 @@ public interface UserService {
 
     User findByEmail(String email);
 
-    void create(User user);
+    User save(User user);
 
     List<User> searchByUsername(String term);
 

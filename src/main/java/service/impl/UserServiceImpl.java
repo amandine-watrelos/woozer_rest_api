@@ -27,12 +27,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void create(User user) {
-        User testIfMailExists = userDao.findByEmail(user.getEmail());
-        if(testIfMailExists != null) {
-            throw new EmailAlreadyExistsException(user.getEmail());
-        }
-        userDao.save(user);
+    public User save(User user) {
+        return userDao.save(user);
     }
 
     @Override

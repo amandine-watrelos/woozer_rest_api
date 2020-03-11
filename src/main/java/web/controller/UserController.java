@@ -22,16 +22,16 @@ public class UserController {
             return userService.findById(id);
         }
 
-        @PostMapping(path = "/email")
+    @PostMapping(path = "/email")
         public User getByMail(@RequestBody String email) {
         log.info("Recherche du user par mail : {}", email);
         return userService.findByEmail(email);
     }
 
-    @PostMapping(path = "")
-    public void createUser(@RequestBody User user) {
-        log.info("Création du user avec le mail : {}", user.getEmail());
-        userService.create(user);
+    @PostMapping(path = "/save")
+    public User save(@RequestBody User user) {
+        log.info("Sauvegarde du user avec le mail : {}", user.getEmail());
+        return userService.save(user);
     }
 
     @GetMapping(path = "/username/like/{term}")
