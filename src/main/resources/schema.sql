@@ -62,9 +62,9 @@ CREATE TABLE `discussion` (
 
 CREATE TABLE `message` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	  discussion_id INT NOT NULL,
+	discussion_id INT NOT NULL,
     user_id INT NOT NULL,
-    date DATE NOT NULL,
+    date DATETIME NOT NULL,
     message VARCHAR(2048) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES woozer.user(id),
     FOREIGN KEY (discussion_id) REFERENCES woozer.discussion(id)
@@ -73,7 +73,7 @@ CREATE TABLE `message` (
 
 CREATE TABLE `debt` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	  payed_by_id INT NOT NULL,
+	payed_by_id INT NOT NULL,
     payed_for_id INT NOT NULL,
     group_id INT NOT NULL,
     amount FLOAT NOT NULL,

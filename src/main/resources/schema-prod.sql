@@ -62,7 +62,7 @@ CREATE TABLE `message` (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	discussion_id INT NOT NULL,
     user_id INT NOT NULL,
-    date DATE,
+    date DATETIME,
     message VARCHAR(2048),
     FOREIGN KEY (user_id) REFERENCES bscts78dfuswnzqa1gko.user(id),
     FOREIGN KEY (discussion_id) REFERENCES bscts78dfuswnzqa1gko.discussion(id)

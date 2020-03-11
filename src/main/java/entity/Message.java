@@ -1,14 +1,11 @@
 package entity;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.util.Set;
-
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import java.util.Date;
 
 @Entity
 @Table
