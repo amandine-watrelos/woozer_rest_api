@@ -18,11 +18,11 @@ public interface EventDao extends CrudRepository<Event,Long> {
 	@Query(value= "SELECT * FROM event WHERE id in (SELECT event_id FROM group_event WHERE group_id = :groupId)", nativeQuery = true)
 	List<Event> findAllByGroupId(@Param("groupId") Long groupId);
 	
-	@Query(value="SELECT * FROM woozer.event WHERE id in (SELECT event_id FROM group_event WHERE group_id in (SELECT group_id FROM group_user WHERE user_id = :userId))", nativeQuery = true)
+	@Query(value="SELECT * FROM event WHERE id in (SELECT event_id FROM group_event WHERE group_id in (SELECT group_id FROM group_user WHERE user_id = :userId))", nativeQuery = true)
 	List<Event> findAllByUserId(@Param("userId") Long userId);
 	
 	@Modifying
-	@Query(value="REPLACE INTO woozer.group_event (group_id, event_id) VALUES (:groupId , :eventId )", nativeQuery=true)
+	@Query(value="REPLACE INTO group_event (group_id, event_id) VALUES (:groupId , :eventId )", nativeQuery=true)
     @Transactional
 	void saveEventToGroup(@Param("eventId") Long eventId, @Param("groupId") Long groupId);
 }
