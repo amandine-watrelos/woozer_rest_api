@@ -26,10 +26,10 @@ INSERT INTO `group_admin` (group_id, user_id) VALUES
 (1, 1);
 
 INSERT INTO `event` (id, name, place, hour, date, description) VALUES
-(1, 'Crémaillière Marie', 'Merris', '20:00:00', '2020-2-14', 'Bienvenue dans mon nouvel appart!'),
-(2, 'Laser Game', 'Lille', '18:00:00', '2020-3-23', 'Laser game du turfu');
+(1, 'Crémaillière Marie', 'Merris', '20:00:00', '2020-02-14', 'Bienvenue dans mon nouvel appart!'),
+(2, 'Laser Game', 'Lille', '18:00:00', '2020-03-23', 'Laser game du futur');
 
-INSERT INTO `group_event` (group_id, event_id) VALUES 
+INSERT INTO `group_event` (group_id, event_id) VALUES
 (4, 1),
 (4, 2);
 
@@ -50,3 +50,34 @@ INSERT INTO `debt` (id, payed_by_id, payed_for_id, amount, comment, done, group_
 (2, 2, 4, 7.5, 'mojito velvet', 1, 1),
 (3, 4, 1, 5.0, 'courses raclette', 1, 2),
 (4, 1, 4, 25.0, 'accrobranche', 0, 3);
+
+INSERT INTO `album` (id, event_id, group_id) VALUES
+(1, 1, 4),
+(2, 2, 4);
+
+INSERT INTO `photo` (id, album_id, src) VALUES
+(1, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(2, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(3, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(4, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(5, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(6, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(7, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(8, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(9, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(10, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRanJq6gTFt8HkYqIK5-NGVFtyPh9bEEjgSOtZPhmhmc5tuilSn'),
+(11, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(12, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(13, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(14, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(15, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(16, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(17, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(18, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(19, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(20, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(21, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(22, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(23, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(24, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg'),
+(25, 2, 'https://www.guide-du-perigord.com/_bibli/annonces/7046/hd/no-limit-10.jpg');

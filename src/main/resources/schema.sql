@@ -127,7 +127,19 @@ CREATE TABLE `survey_option_user` (
     PRIMARY KEY (survey_option_id, user_id),
     FOREIGN KEY (survey_option_id) REFERENCES woozer.survey_option(id),
     FOREIGN KEY (user_id) REFERENCES woozer.user(id)
-
 );
 
+CREATE TABLE `album` (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  event_id INT NOT NULL,
+  group_id INT NOT NULL,
+  FOREIGN KEY (event_id) REFERENCES woozer.event(id),
+  FOREIGN KEY (group_id) REFERENCES woozer.groupe(id)
+);
 
+CREATE TABLE `photo` (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	src VARCHAR(512) NOT NULL,
+	album_id INT NOT NULL,
+	FOREIGN KEY (album_id) REFERENCES woozer.album(id)
+);

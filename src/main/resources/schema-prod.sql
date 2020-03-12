@@ -80,3 +80,18 @@ CREATE TABLE `debt` (
     FOREIGN KEY (payed_by_id) REFERENCES bscts78dfuswnzqa1gko.user(id),
     FOREIGN KEY (payed_for_id) REFERENCES bscts78dfuswnzqa1gko.user(id)
 );
+
+CREATE TABLE `album` (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  event_id INT NOT NULL,
+  group_id INT NOT NULL,
+  FOREIGN KEY (event_id) REFERENCES bscts78dfuswnzqa1gko.event(id),
+  FOREIGN KEY (group_id) REFERENCES bscts78dfuswnzqa1gko.groupe(id)
+);
+
+CREATE TABLE `photo` (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	src VARCHAR(512) NOT NULL,
+	album_id INT NOT NULL,
+	FOREIGN KEY (album_id) REFERENCES bscts78dfuswnzqa1gko.album(id)
+);
