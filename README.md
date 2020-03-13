@@ -1,18 +1,23 @@
-### Sonar
-Pour lancer une analyse avec Sonar Scanner (il faut avoir défini la variable d'environnement qui pointe vers le dossier /bin de sonar-scanner dans le path) :
-``sonar-scanner   -Dsonar.projectKey=Woozer   -Dsonar.sources=.   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=bb21b4d50008ec9aba401d2de85db36e1cf8a802``
+### API pour l'application Woozer  
 
-Pour visualiser les analyses Sonar, se rendre dans le dossin /bin de sonarqube : 
-``./sonar.sh console``
+Retrouvez nous sur Facebook à l'adresse suivante : https://www.facebook.com/Woozer-110270700360039/  
+N'hésitez pas à nous contacter à l'adresse mail suivante : app.woozer@gmail.com  
 
-### Application back
+#### Installation en local  
 
-Il faut :
-- avoir installé MySQL (v8.0.18 fonctionne)
-- y créer un utilisateur (username = root, mdp = root)
-- lancer le script sql ```schema.sql``` pour créer la structure des tables
-- une fois la table créée, lancer le script sql ``data.sql`` pour créer un premier jeu de données
+Il faut avoir installé :  
+- Java  
+- Maven  
+- Un serveur MySQL (v8 fonctionne)  
 
-Une fois la connexion SQL fonctionnelle, pour lancer l'API il faut exécuter le main de ``Application.java``.  
-Pour tester que tout fonctionne, la requête suivante en GET devrait retourner un utilisateur :
-``http://localhost:8080/user/1``
+Il faut ensuite :  
+- Créer un utilisateur dans le serveur MySQl (username = root, mot de passe = root)   
+- Lancer le script sql ```schema.sql``` pour créer la structure des tables  
+- Une fois le schéma créé, lancer le script sql ``data.sql`` pour créer un premier jeu de données  
+- Lancer les commandes suivantes : ``mvn package`` puis ``mvn install``    
+
+#### Lancement de l'API  
+
+Lancer la commande suivante : ``mvn spring-boot:run``  
+
+Vous pouvez maintenant requêter l'API !  
