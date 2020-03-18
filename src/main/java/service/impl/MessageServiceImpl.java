@@ -1,6 +1,5 @@
 package service.impl;
 
-import dao.DiscussionDao;
 import dao.MessageDao;
 import entity.Message;
 import org.springframework.beans.factory.annotation.Autowired;

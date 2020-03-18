@@ -2,7 +2,6 @@ package service.impl;
 
 import dao.UserDao;
 import entity.User;
-import exception.EmailAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.UserService;

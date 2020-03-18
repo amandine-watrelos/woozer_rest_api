@@ -3,7 +3,6 @@ package service.impl;
 import dao.AlbumDao;
 import dao.DiscussionDao;
 import entity.Album;
-import entity.Discussion;
 import entity.Group;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
