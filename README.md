@@ -21,3 +21,8 @@ Il faut ensuite :
 Lancer la commande suivante : ``mvn spring-boot:run``  
 
 Vous pouvez maintenant requêter l'API !  
+
+### Sonar et tests
+
+Lancer l'analyse SonarScanner avec maven (il faut avoir lancé SonarQube au préalable) :  
+``mvn clean verify sonar:sonar``  
